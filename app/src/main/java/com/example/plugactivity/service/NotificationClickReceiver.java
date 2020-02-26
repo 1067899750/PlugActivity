@@ -4,8 +4,11 @@ import android.app.Activity;
 import android.app.ActivityManager;
 import android.app.Application;
 import android.content.BroadcastReceiver;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
+import android.text.TextUtils;
 
 import com.example.plugactivity.MainActivity;
 
@@ -24,11 +27,30 @@ public class NotificationClickReceiver extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
         //判断APP是否在后台运行，如果是启动APP跳转到首页
-        isAppForeground(context);
         if (!isAppRunning(context) || !isAppForeground(context)) {
-            Intent activityIntent = new Intent(context, MainActivity.class);
-            activityIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            context.startActivity(activityIntent);
+            //唤醒APP
+            ActivityManager activityManager = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
+            List<ActivityManager.RecentTaskInfo> taskInfoList = activityManager.getRecentTasks(100,
+                    ActivityManager.RECENT_IGNORE_UNAVAILABLE);
+            for (ActivityManager.RecentTaskInfo taskInfo : taskInfoList) {
+                ComponentName componentName;
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                    componentName = taskInfo.baseActivity;
+                } else {
+                    componentName = taskInfo.baseIntent.getComponent();
+                }
+                if (componentName == null) {
+                    continue;
+                }
+                if (TextUtils.equals(componentName.getPackageName(), context.getPackageName())) {
+                    if (taskInfo.id >= 0) {
+                        activityManager.moveTaskToFront(taskInfo.id, ActivityManager.MOVE_TASK_WITH_HOME);
+                        return;
+                    } else {
+                        break;
+                    }
+                }
+            }
         }
 
     }
