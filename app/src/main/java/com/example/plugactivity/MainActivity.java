@@ -111,7 +111,7 @@ public class MainActivity extends AppCompatActivity {
             public void onResult(boolean b) {
                 if (b) {//成功
                     Intent intent = new Intent(MainActivity.this, DownloadTaskService.class);
-                    startActivity(intent);
+                    startService(intent);
                     bindService(intent, mServiceConnection, BIND_AUTO_CREATE);
                     mDownloadBinder.startDownload(url);
                 }
