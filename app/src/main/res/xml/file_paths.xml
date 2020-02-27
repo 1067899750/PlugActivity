@@ -1,26 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <paths>
-    <root-path
-        name="root"
-        path="" />
-    <files-path
-        name="files"
-        path="pics" />
 
-    <cache-path
-        name="cache"
-        path="pics" />
+<!--    <root-path-->
+<!--        name="root"-->
+<!--        path="" />-->
+<!--    <files-path-->
+<!--        name="files"-->
+<!--        path="pics" />-->
+
+<!--    <cache-path-->
+<!--        name="cache"-->
+<!--        path="pics" />-->
+
+<!--    <external-path-->
+<!--        name="external"-->
+<!--        path="pics" />-->
+
+<!--    <external-files-path-->
+<!--        name="external_file_path"-->
+<!--        path="Android/data/pics" />-->
+
+<!--    <external-cache-path-->
+<!--        name="external_cache_path"-->
+<!--        path="pics" />-->
+
 
     <external-path
-        name="external"
-        path="pics" />
-
-    <external-files-path
-        name="external_file_path"
-        path="Android/data/pics" />
-
-    <external-cache-path
-        name="external_cache_path"
-        path="pics" />
+        name="external_storage_root"
+        path="." />
 
 </paths>
