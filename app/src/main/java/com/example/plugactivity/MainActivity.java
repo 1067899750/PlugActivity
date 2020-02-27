@@ -1,5 +1,6 @@
 package com.example.plugactivity;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
@@ -9,6 +10,7 @@ import android.content.ComponentName;
 import android.content.Intent;
 import android.content.ServiceConnection;
 import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 
@@ -46,7 +48,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
-        requestPermissions(new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 1);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            requestPermissions(new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 1);
+        }
 //        DownloadService.startDownloadService(MainActivity.this,
 //                "https://yanyangtian.purang.com/download/" + APP_PACKAGE_NAME,
 //                APP_PACKAGE_NAME);
@@ -111,9 +115,8 @@ public class MainActivity extends AppCompatActivity {
             public void onResult(boolean b) {
                 if (b) {//成功
                     Intent intent = new Intent(MainActivity.this, DownloadTaskService.class);
+                    intent.putExtra(DownloadTaskService.KEY_DOWN_URL, url);
                     startService(intent);
-                    bindService(intent, mServiceConnection, BIND_AUTO_CREATE);
-                    mDownloadBinder.startDownload(url);
                 }
             }
 
