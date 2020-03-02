@@ -63,8 +63,6 @@ public class DownloadTask extends AsyncTask<String, Integer, Integer> {
             file = new File(directory + filedName);
             if (file.exists()) {
                 downloadedLength = file.length();
-            } else {
-                file.mkdir();
             }
             long contentLength = getContentLength(downloadUrl);
             if (contentLength == 0) {
