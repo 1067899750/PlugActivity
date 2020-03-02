@@ -69,7 +69,9 @@ public class DownloadTask extends AsyncTask<String, Integer, Integer> {
                 return TYPE_FAIED;
             } else if (contentLength == downloadedLength) {
                 //已下载的字节数和总字节数相等，说明一下载成功
-                return TYPE_SUCCESS;
+//                return TYPE_SUCCESS;
+                file.delete();
+                downloadedLength = 0;
             }
             OkHttpClient client = new OkHttpClient();
             Request request = new Request.Builder()
