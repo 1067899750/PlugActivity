@@ -1,6 +1,7 @@
 package com.example.plugactivity.download;
 
 import android.annotation.TargetApi;
+import android.app.Activity;
 import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
@@ -108,6 +109,18 @@ public class DownloadTaskService extends Service {
 
 
     public DownloadTaskService() {
+    }
+
+
+    /**
+     *  创建服务
+     * @param activity
+     * @param url
+     */
+    public static void startDownloadTaskService(Activity activity, String url){
+        Intent intent = new Intent(activity, DownloadTaskService.class);
+        intent.putExtra(DownloadTaskService.KEY_DOWN_URL, url);
+        activity.startService(intent);
     }
 
     private DownloadBinder mBinder = new DownloadBinder();
