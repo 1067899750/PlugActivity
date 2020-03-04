@@ -1,9 +1,7 @@
 package com.example.plugactivity.multithread;
 
 import java.io.RandomAccessFile;
-import java.lang.annotation.Target;
 import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
 import java.net.URL;
 
 /**
