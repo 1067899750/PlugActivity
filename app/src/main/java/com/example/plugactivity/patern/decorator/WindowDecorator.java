@@ -1,4 +1,4 @@
-package com.example.plugactivity.decorator;
+package com.example.plugactivity.patern.decorator;
 
 /**
  * @author puyantao

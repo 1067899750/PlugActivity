@@ -1,6 +1,4 @@
-package com.example.plugactivity.decorator;
-
-import android.util.Log;
+package com.example.plugactivity.patern.decorator;
 
 /**
  * @author puyantao

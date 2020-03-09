@@ -1,4 +1,4 @@
-package com.example.plugactivity.proxy;
+package com.example.plugactivity.patern.proxy;
 
 /**
  * @author puyantao

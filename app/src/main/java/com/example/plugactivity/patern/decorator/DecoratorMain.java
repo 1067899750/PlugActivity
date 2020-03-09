@@ -1,8 +1,8 @@
-package com.example.plugactivity.decorator;
+package com.example.plugactivity.patern.decorator;
 
 /**
  * @author puyantao
- * @describe  装饰者模式
+ * @describe  装饰者模式 https://blog.csdn.net/self_study/article/details/51591709
  * @create 2020/3/9 16:03
  */
 public class DecoratorMain {
