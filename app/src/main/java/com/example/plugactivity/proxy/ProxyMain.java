@@ -4,10 +4,10 @@ import java.lang.reflect.Proxy;
 
 /**
  * @author puyantao
- * @describe
+ * @describe 代理模式
  * @create 2020/3/9 13:59
  */
-public class AAAA {
+public class ProxyMain {
 
     public static void main(String[] argc) {
         int a = 1;
