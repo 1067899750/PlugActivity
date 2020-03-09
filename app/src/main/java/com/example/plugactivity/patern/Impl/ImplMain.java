@@ -2,7 +2,7 @@ package com.example.plugactivity.patern.Impl;
 
 /**
  * @author puyantao
- * @describe 桥接模式
+ * @describe 桥接模式 https://blog.csdn.net/self_study/article/details/51622243
  * @create 2020/3/9 16:31
  */
 public class ImplMain {
